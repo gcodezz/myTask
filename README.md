@@ -50,7 +50,6 @@ JavaScript (React Native)
 
 
 ## Assumptions
-I
 1. The Profile screen is the home screen, it consists of an header button(Edit) on top right of the screen to navigate to the edit screen.
 
 2. For the font, Custom fonts which were downloaded from google-fonts were loaded and used in the app.
