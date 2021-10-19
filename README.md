@@ -8,9 +8,9 @@ Create a simple cross platform application (React Native) for <add details>
 
 The app will consist of:
 
-    └──Profile
+    └──Profile Screen
 
-    └──
+    └──Edit-Profile Screen
 
 
 # Proposed Stack
