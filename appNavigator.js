@@ -1,5 +1,5 @@
 import { Platform } from 'react-native'
-import { createAppContainer } from 'react-navigation'
+import { createAppContainer, createSwitchNavigator } from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack'
 
 import EditProfileScreen from './screens/EditProfileScreen'
@@ -14,15 +14,25 @@ const defaultStackNavOptions = {
     headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primaryColor
 }
 
-const appNavigator = createStackNavigator({
-    Profile: {
-        screen: ProfileScreen
-    },
+const EditNavigator = createStackNavigator({
     EditProfile: {
         screen: EditProfileScreen
     }
 }, {
     defaultNavigationOptions: defaultStackNavOptions
+})
+
+const ProfileNavigator = createStackNavigator({
+    Profile: {
+        screen: ProfileScreen
+    }
+}, {
+    defaultNavigationOptions: defaultStackNavOptions
+})
+
+const appNavigator = createSwitchNavigator({
+    Edit: EditNavigator,
+    Profilee: ProfileNavigator
 })
 
 export default createAppContainer(appNavigator)

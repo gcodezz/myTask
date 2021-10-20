@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import { 
     View, 
     Text,
@@ -12,11 +12,15 @@ import {
 import Description from '../components/Description'
 import Colors from '../constants/Colors'
 
-const windowWidth = Dimensions.get('window').width;
+const windowWidth = Dimensions.get('window').width
 const windowHeight = Dimensions.get('window').height
 
 const ProfileScreen = props => {
-    const status = props.navigation.getParam('status')
+    const [status, setStatus] = useState(null)
+
+    useEffect(() => {
+        setStatus(props.navigation.getParam('status'))
+    }, [])
 
     const editHandler = useCallback(() => {
         props.navigation.navigate({
@@ -57,7 +61,7 @@ const ProfileScreen = props => {
                         <Text style={{ fontSize: 20, fontFamily: 'KarlaMedium', color: Colors.primaryColor, paddingVertical: 5 }}>Aladdin</Text>
                     </View>
                     <View style={styles.textWrapper}>
-                        <Text style={{ color: Colors.white, padding: 8, fontSize: 18, fontFamily: 'KarlaMedium' }}>{status == undefined ? 'Only Friends' : status}</Text>
+                        <Text style={{ color: Colors.white, padding: 8, fontSize: 18, fontFamily: 'KarlaMedium' }}>{status}</Text>
                     </View>
                 </View>
                 <Description 

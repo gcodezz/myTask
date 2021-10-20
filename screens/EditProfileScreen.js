@@ -21,7 +21,7 @@ var { width, height } = Dimensions.get('window')
 
 const EditProfileScreen = props => {
 
-    const latestStatus = props.navigation.getParam('status') == undefined ? 'Only Friends' : props.navigation.getParam('status')
+    const latestStatus = props.navigation.getParam('status') == undefined ? 'Dating and Friends' : props.navigation.getParam('status')
 
     const [value, setValue] = useState(latestStatus)
     const [status, setStatus] = useState(latestStatus)
@@ -34,11 +34,8 @@ const EditProfileScreen = props => {
     }
 
     const submitHandler = useCallback(() => {
-        props.navigation.navigate({
-            routeName: 'Profile',
-            params: {
-                status: status
-            }
+        props.navigation.navigate('Profile', {
+            status: status
         })
     }, [status])
     
